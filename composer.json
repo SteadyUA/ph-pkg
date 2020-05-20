@@ -8,6 +8,7 @@
     "autoload": {
         "classmap": ["Installer.php"]
     },
+    "license": "BSD-3-Clause",
     "scripts": {
         "post-create-project-cmd": [
             "SteadyUa\\PhPkg\\Installer::postInstall"

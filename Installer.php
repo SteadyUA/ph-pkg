@@ -115,6 +115,8 @@ class Installer
         foreach ($files as $file) {
             if (!is_dir($file)) {
                 unlink($file);
+            } else {
+                self::rmDir($file);
             }
         }
         rmdir($dirPath);
@@ -128,10 +130,13 @@ class Installer
             $resultJson['description'],
             $resultJson['scripts'],
         );
+        $resultJson["license"] = "proprietary";
         $json->write($resultJson);
         self::rmDir(__DIR__ . '/minimal');
         self::rmDir(__DIR__ . '/service');
+        self::rmDir(__DIR__ . '/vendor');
         unlink(__DIR__ . '/readme.md');
+        unlink(__DIR__ . '/composer.lock');
         unlink(__FILE__);
     }
 }
