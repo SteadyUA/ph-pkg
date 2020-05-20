@@ -1,0 +1,16 @@
+{
+    "name": "steady-ua/ph-pkg",
+    "version": "0.0.1",
+    "description": "Phoenix core package skeleton",
+    "require": {
+        "php": "^7.3"
+    },
+    "autoload": {
+        "classmap": ["Installer.php"]
+    },
+    "scripts": {
+        "post-create-project-cmd": [
+            "SteadyUa\\PhPkg\\Installer::postInstall"
+        ]
+    }
+}

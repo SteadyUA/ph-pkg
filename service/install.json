@@ -1,0 +1,17 @@
+{
+    "extends": "minimal",
+    "mkdir": [
+        "/src/Exception",
+        "/src/Infrastructure",
+        "/src/Service",
+        "/src/Service/Entity",
+        "/src/Type"
+    ],
+    "copy": {
+        "services.yml": "/",
+        "__SERVICE_NAME__Service.php": "/src",
+        "__SERVICE_NAME__.php": "/src/Service",
+        "Storage.php": "/src/Service",
+        "DbStorage.php": "/src/Infrastructure"
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "mkdir": [
+        "/src"
+    ],
+    "copy": {
+        "__EMPTY__.gitignore": "/"
+    },
+    "composer.json": {
+        "name": "__PKG_NAME__",
+        "version": "1.0.0",
+        "autoload": {
+            "psr-4": {
+                "__PKG_NS__\\": "src/"
+            }
+        },
+        "repositories": [
+            {
+                "type": "path",
+                "url": "../../*/*"
+            }
+        ]
+    }
+}

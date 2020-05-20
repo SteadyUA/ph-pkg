@@ -1,0 +1,19 @@
+#imports:
+#  - { resource: 'vendor/phoenix/< name >/services.yml' }
+
+service:
+  _defaults:
+    public: false
+    autowire: true
+
+  __PKG_NS__\:
+    resource: './src/*'
+
+#public
+  __PKG_NS__\__SERVICE_NAME__Service:
+    public: true
+    class: __PKG_NS__\Service\__SERVICE_NAME__
+
+#private
+  __PKG_NS__\Service\Storage:
+    class: __PKG_NS__\Infrastruture\DbStorage
