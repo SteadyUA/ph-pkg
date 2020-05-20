@@ -16,4 +16,4 @@ service:
 
 #private
   __PKG_NS__\Service\Storage:
-    class: __PKG_NS__\Infrastruture\DbStorage
+    class: __PKG_NS__\Infrastructure\DbStorage
