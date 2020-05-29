@@ -1,6 +1,6 @@
 {
     "name": "steady-ua/ph-pkg",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Phoenix core package skeleton",
     "require": {
         "php": "^7.3"

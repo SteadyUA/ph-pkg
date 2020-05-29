@@ -12,12 +12,6 @@
             "psr-4": {
                 "__PKG_NS__\\": "src/"
             }
-        },
-        "repositories": [
-            {
-                "type": "path",
-                "url": "../../*/*"
-            }
-        ]
+        }
     }
 }
