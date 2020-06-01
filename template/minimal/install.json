@@ -8,6 +8,13 @@
     "composer.json": {
         "name": "__PKG_NAME__",
         "version": "1.0.0",
+        "authors": [
+            {
+                "name": "__USER_NAME__",
+                "email": "__USER_EMAIL__",
+                "role": "Developer"
+            }
+        ],
         "autoload": {
             "psr-4": {
                 "__PKG_NS__\\": "src/"

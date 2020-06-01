@@ -21,7 +21,8 @@ class Installer
 
     public function make(array $composerData): array
     {
-        $instructionsFile = __DIR__ . '/' . $this->type . '/install.json';
+        $templateDir = __DIR__ . '/template/' . $this->type;
+        $instructionsFile = $templateDir . '/install.json';
         $instructions = (new JsonFile($instructionsFile))->read();
         if (isset($instructions['extends'])) {
             $composerData = (new self($this->data, $instructions['extends']))->make($composerData);
@@ -34,7 +35,7 @@ class Installer
 
         foreach ($instructions['copy'] ?? [] as $sourceFile => $destinationDir) {
             $destinationDir = strtr($destinationDir, $this->data);
-            $contents = file_get_contents(__DIR__ . "/{$this->type}/" . $sourceFile);
+            $contents = file_get_contents($templateDir . "/" . $sourceFile);
             $contents = strtr($contents, $this->data);
             file_put_contents(
                 __DIR__ . "/" . $destinationDir . '/' . strtr($sourceFile, $this->data),
@@ -106,11 +107,17 @@ class Installer
             echo "\n";
         }
 
+        $data['__USER_NAME__'] = exec('git config user.name 2>/dev/null');
+        $data['__USER_EMAIL__'] = exec('git config user.email 2>/dev/null');
+
         return new self($data, $type);
     }
 
     private static function rmDir($dirPath)
     {
+        if (0 !== strpos($dirPath, __DIR__)) {
+            return;
+        }
         $files = glob($dirPath . '/*');
         foreach ($files as $file) {
             if (!is_dir($file)) {
@@ -119,7 +126,18 @@ class Installer
                 self::rmDir($file);
             }
         }
-        rmdir($dirPath);
+        if (file_exists($dirPath)) {
+            rmdir($dirPath);
+        }
+    }
+
+    private static function unlink($filePath) {
+        if (0 !== strpos($filePath, __DIR__)) {
+            return;
+        }
+        if (file_exists($filePath)) {
+            unlink($filePath);
+        }
     }
 
     public static function postInstall(Event $event)
@@ -132,11 +150,10 @@ class Installer
         );
         $resultJson["license"] = "proprietary";
         $json->write($resultJson);
-        self::rmDir(__DIR__ . '/minimal');
-        self::rmDir(__DIR__ . '/service');
+        self::rmDir(__DIR__ . '/template');
         self::rmDir(__DIR__ . '/vendor');
-        unlink(__DIR__ . '/readme.md');
-        unlink(__DIR__ . '/composer.lock');
-        unlink(__FILE__);
+        self::unlink(__DIR__ . '/readme.md');
+        self::unlink(__DIR__ . '/composer.lock');
+        self::unlink(__FILE__);
     }
 }

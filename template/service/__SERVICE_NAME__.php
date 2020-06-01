@@ -7,11 +7,11 @@ use __PKG_NS__\__SERVICE_NAME__Service;
 class __SERVICE_NAME__ implements __SERVICE_NAME__Service
 {
     /**
-     * @var Storage
+     * @var __SERVICE_NAME__Storage
      */
     private $storage;
 
-    public function __construct(Storage $storage)
+    public function __construct(__SERVICE_NAME__Storage $storage)
     {
         $this->storage = $storage;
     }

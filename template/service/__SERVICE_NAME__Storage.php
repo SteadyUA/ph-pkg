@@ -2,7 +2,7 @@
 
 namespace __PKG_NS__\Service;
 
-interface Storage
+interface __SERVICE_NAME__Storage
 {
 
 }

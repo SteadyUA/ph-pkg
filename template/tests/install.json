@@ -1,0 +1,18 @@
+{
+    "mkdir": [
+        "/tests"
+    ],
+    "copy": {
+        "phpunit.xml": "/"
+    },
+    "composer.json": {
+        "autoload-dev": {
+            "psr-4": {
+                "__PKG_NS__\\Tests\\": "tests/"
+            }
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^8"
+        }
+    }
+}

@@ -11,7 +11,7 @@
         "services.yml": "/",
         "__SERVICE_NAME__Service.php": "/src",
         "__SERVICE_NAME__.php": "/src/Service",
-        "Storage.php": "/src/Service",
-        "DbStorage.php": "/src/Infrastructure"
+        "__SERVICE_NAME__Storage.php": "/src/Service",
+        "InMemory__SERVICE_NAME__Storage.php": "/src/Infrastructure"
     }
 }
