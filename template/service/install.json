@@ -3,6 +3,7 @@
     "mkdir": [
         "/src/Exception",
         "/src/Infrastructure",
+        "/src/Infrastructure/Entity",
         "/src/Service",
         "/src/Service/Entity",
         "/src/Type"
@@ -11,7 +12,7 @@
         "services.yml": "/",
         "__SERVICE_NAME__Service.php": "/src",
         "__SERVICE_NAME__.php": "/src/Service",
-        "__SERVICE_NAME__Storage.php": "/src/Service",
-        "InMemory__SERVICE_NAME__Storage.php": "/src/Infrastructure"
+        "__SERVICE_NAME__Storage.php": "/src/Service/Entity",
+        "InMemory__SERVICE_NAME__Storage.php": "/src/Infrastructure/Entity"
     }
 }

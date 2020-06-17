@@ -15,5 +15,5 @@ service:
     class: __PKG_NS__\Service\__SERVICE_NAME__
 
 #private
-  __PKG_NS__\Service\__SERVICE_NAME__Storage:
-    class: __PKG_NS__\Infrastructure\InMemory__SERVICE_NAME__Storage
+  __PKG_NS__\Service\Entity\__SERVICE_NAME__Storage:
+    class: __PKG_NS__\Infrastructure\Entity\InMemory__SERVICE_NAME__Storage
